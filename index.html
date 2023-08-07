@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-
-        <script>
-        function getMobileOperatingSystem() {
+    <title>Dyp works</title>
+    <script>
+        function getMobileOperatingSystem(token) {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             // Windows Phone must come first because its UA also contains "Android"
@@ -16,7 +14,7 @@
             }
 
             if (/android/i.test(userAgent)) {
-                window.location.href = "unitydl://mylink?scene1"
+                window.location.href = `unitydl://resetpassword?${token}`
                 return "Android";
             }
 
@@ -26,17 +24,19 @@
             }
 
             return "Web";
-        }   
-        document.getElementById("device").innerHTML = getMobileOperatingSystem()
+        }
+        
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+        });
+        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+        let token = params.token; // "some_value"
 
 
+        document.getElementById("device").innerHTML = getMobileOperatingSystem(token)
     </script>
 </head>
 <body>
-
     <p id="device"></p>
-
-
-
 </body>
 </html>
