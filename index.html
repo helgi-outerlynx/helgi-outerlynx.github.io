@@ -19,7 +19,7 @@
 
             if (/android/i.test(userAgent)) {
                 console.log("is android")
-                window.location.href = "unitydl://" + token
+                window.location.href = "unitydl://redirect?token=" + token
                 return "Android";
             }
             
@@ -41,7 +41,7 @@
         console.log(getMobileOperatingSystem(token))
         // document.getElementById("device").innerHTML = getMobileOperatingSystem(token);
         var a = document.getElementById("myLink")
-        // a.setAttribute("href", "unitydl://" + token)
+        a.setAttribute("href", "unitydl://redirect?token=" + token)
     </script>
 </head>
 <body>
