@@ -3,56 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dyp works</title>
-    <script>
-        function getMobileOperatingSystem(token) {
+    <title>Document</title>
+
+
+        <script>
+        function getMobileOperatingSystem() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
+
             // Windows Phone must come first because its UA also contains "Android"
             if (/windows phone/i.test(userAgent)) {
                 return "Windows Phone";
             }
-            
+
             if (/android/i.test(userAgent)) {
+                window.location.href = "unitydl://mylink?scene1"
                 return "Android";
             }
-            
+
             // iOS detection from: http://stackoverflow.com/a/9039885/177710
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 return "iOS";
             }
-            
+
             return "Web";
-        }
+        }   
+        document.getElementById("device").innerHTML = getMobileOperatingSystem()
 
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-        let token = params.token; // "some_value"
-        // document.getElementById("device").innerHTML = g  etMobileOperatingSystem(token)
-        console.log(token)
-
-        window.location.href = `unitydl://resetpassword?token=${token}`
 
     </script>
 </head>
 <body>
-    <p id="device">khemmm</p>
 
-    <a id="myLink" href="#" onclick="f1()"><h1>Click here deep link</h1></a>
+    <p id="device"></p>
 
-    <script>
-       
-     
-        function f1(){
-            const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-        let token = params.token; // "some_value"   
-            window.location.href = `unitydl://resetpassword?${token}`
-        }
-        </script>
+
+
 </body>
 </html>
