@@ -19,14 +19,7 @@
         document.getElementById("myLink").onclick = function() {
             window.location.href = `unitydl://resetpassword?${token}`
         }
-    </script>
-</head>
-<body>
-    <p id="device">khemmm</p>
 
-    <a id="myLink" href="#" onclick="f1()"><h1>Click here deep link</h1></a>
-
-    <script>
         function getMobileOperatingSystem(token) {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             
@@ -46,7 +39,15 @@
             
             return "Web";
         }
-        
+    </script>
+</head>
+<body>
+    <p id="device">khemmm</p>
+
+    <a id="myLink" href="#" onclick="f1()"><h1>Click here deep link</h1></a>
+
+    <script>
+       
      
         function f1(){
             const params = new Proxy(new URLSearchParams(window.location.search), {
