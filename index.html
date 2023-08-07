@@ -15,9 +15,11 @@
                 return "Windows Phone";
             }
             
+            var token 
+
             if (/android/i.test(userAgent)) {
                 console.log("is android")
-                window.location.href = "unitydl://resetpassword?token=" + token
+                window.location.href = "unitydl://" + token
                 return "Android";
             }
             
@@ -39,7 +41,7 @@
         console.log(getMobileOperatingSystem(token))
         // document.getElementById("device").innerHTML = getMobileOperatingSystem(token);
         var a = document.getElementById("myLink")
-        a.setAttribute("href", "unitydl://resetpassword?token=" + token)
+        // a.setAttribute("href", "unitydl://" + token)
     </script>
 </head>
 <body>
