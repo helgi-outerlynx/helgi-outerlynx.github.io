@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dyp works</title>
     <script>
-        const params = new Proxy(new URLSearchParams(window.location.search), {
-            get: (searchParams, prop) => searchParams.get(prop),
-        });
-        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-        let token = params.token; // "some_value"
-        document.getElementById("device").innerHTML = getMobileOperatingSystem(token)
-        console.log(token)
-
-        window.location.href = `unitydl://resetpassword?${token}`
-
-
-        document.getElementById("myLink").onclick = function() {
-            window.location.href = `unitydl://resetpassword?${token}`
-        }
-
         function getMobileOperatingSystem(token) {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             
@@ -39,6 +24,17 @@
             
             return "Web";
         }
+
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+        let token = params.token; // "some_value"
+        // document.getElementById("device").innerHTML = g  etMobileOperatingSystem(token)
+        console.log(token)
+
+        window.location.href = `unitydl://resetpassword?token=${token}`
+
     </script>
 </head>
 <body>
