@@ -9,8 +9,6 @@
 <body>
     <p id="device">khemmm</p>
     <script>
-        
-        
         function getMobileOperatingSystem(token) {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             
@@ -20,7 +18,6 @@
             }
             
             if (/android/i.test(userAgent)) {
-                window.location.href = `unitydl://resetpassword?${token}`
                 return "Android";
             }
             
@@ -38,6 +35,8 @@
         // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
         let token = params.token; // "some_value"
         document.getElementById("device").innerHTML = getMobileOperatingSystem(token)
+        console.log(token)
+        window.location.href = `unitydl://resetpassword?${token}`
         
         </script>
 </body>
